@@ -1,10 +1,23 @@
+import mongoose from 'mongoose'
 import app from "./app";
+import dotenv from './config';
+import config from './config';
 
 
-function server (){
-    app.listen(5000, () =>{
-        console.log("server running")
-    })
+
+async function server() {
+    try {
+       await mongoose.connect('mongodb+srv://bicycle-store:HzxBNszLSGoWpc5c@cluster0.nhcslav.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+        app.listen(5000, () => {
+            console.log("server running")
+        })
+
+    } catch (error) {
+        console.log(error)
+    }
+   
 }
 
-server()
+console.log(config.database_url)
+
+server();
