@@ -41,7 +41,10 @@ const productSchema = new Schema<IProduct>({
     type: Boolean,
     required: [true, 'Please specify if the bicycle is in stock'],
     default: true,
-  },
-});
+  }
+},
+{ timestamps: true }
+
+);
 
 export const Product = model<IProduct>('Product', productSchema);
