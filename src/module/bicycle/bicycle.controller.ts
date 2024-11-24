@@ -24,8 +24,9 @@ const createBicycle = async (req: Request, res: Response) => {
    }
 }
 
-const getCycle = async(req:Request, res:Response) =>{
-   try{
+// get all bicycle
+const getCycle = async (req: Request, res: Response) => {
+   try {
       const result = await biCycleService.getCycle()
       res.send({
          status: true,
@@ -33,7 +34,7 @@ const getCycle = async(req:Request, res:Response) =>{
          result
       })
 
-   } catch(error){
+   } catch (error) {
       res.json({
          status: false,
          message: " A brief error message explaining what went wrong.",
@@ -42,8 +43,71 @@ const getCycle = async(req:Request, res:Response) =>{
    }
 }
 
+// get single bicycle
+const getSingleCycle = async (req: Request, res: Response) => {
+   try {
+      const cycleId = req.params.cycleId
+      const result = await biCycleService.singleGetCycle(cycleId)
+      res.send({
+         status: true,
+         message: "Bicycle retrieved successfully",
+         result
+      })
+
+   } catch (error) {
+      res.json({
+         status: false,
+         message: " A brief error message explaining what went wrong.",
+         error,
+      })
+   }
+}
+
+// update biCycle
+const updateBicycle = async (req: Request, res: Response) => {
+   try {
+      const cycleId = req.params.cycleId
+      const body = req.body
+      const result = await biCycleService.updateBicycle(cycleId, body)
+      res.send({
+         status: true,
+         message: 'Bicycle updated successfully',
+         result
+      })
+   } catch (error) {
+      res.json({
+         status: false,
+         message: 'something went wrong',
+         error,
+      })
+   }
+}
+
+// Delete by cycle
+const deleteByCycle = async (req: Request, res: Response) => {
+   try {
+     const cycleId = req.params.cycleId
+     await biCycleService.deleteByCycle(cycleId)
+ 
+     res.send({
+       status: true,
+       message: 'Bicycle deleted successfully',
+       result: {},
+     })
+   } catch (error) {
+     res.json({
+       status: false,
+       message: 'Something went wrong',
+       error,
+     })
+   }
+ }
 
 export const bicycleController = {
    createBicycle,
-   getCycle
+   getCycle,
+   getSingleCycle,
+   updateBicycle,
+   deleteByCycle
+
 }

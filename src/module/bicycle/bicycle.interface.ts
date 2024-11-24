@@ -8,3 +8,6 @@ export interface IProduct {
     quantity: number;
     inStock: boolean;
   }
+
+ 
+  

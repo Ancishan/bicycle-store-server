@@ -11,10 +11,33 @@ const createBicycle = async (makeBicycle: IProduct) => {
 // get cycle services
 const getCycle = async() =>{
     const result = await Product.find()
-    return result;
+    return result
+}
+
+// get single bicycle
+const singleGetCycle = async(id: string) =>{
+    const result = await Product.findById(id)
+    return result
+}
+
+// update bicycle
+const updateBicycle = async(id: string, data:IProduct) =>{
+    const result = await Product.findByIdAndUpdate(id, data, {
+        new:true,
+    })
+    return result
+}
+
+// delete byCycle
+const deleteByCycle = async (id: string) =>{
+    const result = await Product.findByIdAndDelete(id)
+    return result
 }
 
 export const biCycleService = {
     createBicycle,
-    getCycle
+    getCycle,
+    singleGetCycle,
+    updateBicycle,
+    deleteByCycle
 }
