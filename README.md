@@ -1,16 +1,16 @@
-Bicycle Store API 🚴‍♂️
-Welcome to the Bicycle Store API, a comprehensive backend application built using Express and TypeScript. This application integrates with MongoDB via Mongoose to provide robust data management for bicycles and orders. 🚲✨
+car Store API 🚴‍♂️
+Welcome to the car Store API, a comprehensive backend application built using Express and TypeScript. This application integrates with MongoDB via Mongoose to provide robust data management for cars and orders. 🚲✨
 
 Project Objective
-Develop a feature-rich API to manage bicycle products and customer orders, ensuring data integrity through Mongoose schema validation and handling various CRUD operations.
+Develop a feature-rich API to manage car products and customer orders, ensuring data integrity through Mongoose schema validation and handling various CRUD operations.
 
 Features:
-1.Bicycle Management
-2.Add, update, delete, and view bicycles.
-3.Enum-based categorization for bicycle types.
+1.car Management
+2.Add, update, delete, and view cars.
+3.Enum-based categorization for car types.
 4.Inventory management to track product availability.
 5.Order Management
-6.Place orders for bicycles with quantity and price validation.
+6.Place orders for cars with quantity and price validation.
 7.Automatic inventory updates upon order placement.
 8.Calculate total revenue using MongoDB aggregation.
 9.Error Handling
@@ -27,20 +27,20 @@ Linting & Formatting: ESLint, Prettier
 
 Data Models:
 
-Product (Bicycle):
+Product (car):
 Field	Type	Description
-name	String	Name of the bicycle
-brand	String	Brand of the bicycle
-price	Number	Price of the bicycle
+name	String	Name of the car
+brand	String	Brand of the car
+price	Number	Price of the car
 type	Enum	Type: Mountain, Road, Hybrid, BMX, Electric
-description	String	Brief description of the bicycle
+description	String	Brief description of the car
 quantity	Number	Available quantity
-inStock	Boolean	Indicates if the bicycle is in stock
+inStock	Boolean	Indicates if the car is in stock
 
 Order:
 Field	Type	Description
 email	String	Customer's email
-product	ObjectId	Reference to the Bicycle
+product	ObjectId	Reference to the car
 quantity	Number	Quantity ordered
 totalPrice	Number	Total price (price * quantity)
 
@@ -54,4 +54,4 @@ This project is licensed under the ISC License.
 Contact:
 For questions or support, reach out to Shanto.
 
---------//Happy Cycling! 🚴‍♀️
+--------//Happy Car! 🚴‍♀️

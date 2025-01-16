@@ -1,16 +1,16 @@
 import { Request, Response } from "express";
-import { biCycleService } from "./biCylce.service";
+import { carService } from "./car.service";
 
 // create bi Cycle
-const createBicycle = async (req: Request, res: Response) => {
+const createCar = async (req: Request, res: Response) => {
   try {
-    const makeBicycle = req.body;
-    // makeBicycle parameter pass into biCycle services
-    const result = await biCycleService.createBicycle(makeBicycle);
+    const makeCar = req.body;
+    // makecar parameter pass into car services
+    const result = await carService.createCar(makeCar);
 
     res.json({
       status: true,
-      message: "Bicycle created successfully",
+      message: "car created successfully",
       data: result,
     });
   } catch (error) {
@@ -22,10 +22,10 @@ const createBicycle = async (req: Request, res: Response) => {
   }
 };
 
-// get all bicycle
-const getCycle = async (req: Request, res: Response) => {
+// get all car
+const getCar = async (req: Request, res: Response) => {
   try {
-    const result = await biCycleService.getCycle();
+    const result = await carService.getCar();
     res.send({
       status: true,
       message: "Cycle getting successfully",
@@ -40,14 +40,14 @@ const getCycle = async (req: Request, res: Response) => {
   }
 };
 
-// get single bicycle
-const getSingleCycle = async (req: Request, res: Response) => {
+// get single car
+const getSingleCar = async (req: Request, res: Response) => {
   try {
     const cycleId = req.params.cycleId;
-    const result = await biCycleService.singleGetCycle(cycleId);
+    const result = await carService.singleGetCar(cycleId);
     res.send({
       status: true,
-      message: "Bicycle retrieved successfully",
+      message: "car retrieved successfully",
       result,
     });
   } catch (error) {
@@ -59,15 +59,15 @@ const getSingleCycle = async (req: Request, res: Response) => {
   }
 };
 
-// update biCycle
-const updateBicycle = async (req: Request, res: Response) => {
+// update car
+const updateCar = async (req: Request, res: Response) => {
   try {
     const cycleId = req.params.cycleId;
     const body = req.body;
-    const result = await biCycleService.updateBicycle(cycleId, body);
+    const result = await carService.updateCar(cycleId, body);
     res.send({
       status: true,
-      message: "Bicycle updated successfully",
+      message: "car updated successfully",
       result,
     });
   } catch (error) {
@@ -80,14 +80,14 @@ const updateBicycle = async (req: Request, res: Response) => {
 };
 
 // Delete by cycle
-const deleteByCycle = async (req: Request, res: Response) => {
+const deleteByCar = async (req: Request, res: Response) => {
   try {
     const cycleId = req.params.cycleId;
-    await biCycleService.deleteByCycle(cycleId);
+    await carService.deleteByCar(cycleId);
 
     res.send({
       status: true,
-      message: "Bicycle deleted successfully",
+      message: "car deleted successfully",
       result: {},
     });
   } catch (error) {
@@ -99,10 +99,10 @@ const deleteByCycle = async (req: Request, res: Response) => {
   }
 };
 
-export const bicycleController = {
-  createBicycle,
-  getCycle,
-  getSingleCycle,
-  updateBicycle,
-  deleteByCycle,
+export const carController = {
+  createCar,
+  getCar,
+  getSingleCar,
+  updateCar,
+  deleteByCar,
 };

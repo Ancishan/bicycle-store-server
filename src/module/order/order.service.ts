@@ -1,5 +1,5 @@
 import { Order } from "./order.model"; // Assume you have an Order model for orders
-import { Product } from "../bicycle/bicycle.model"; // Product model for checking stock
+import { Product } from "../car/car.model"; // Product model for checking stock
 
 interface IOrder {
   email: string;

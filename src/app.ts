@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import bicycleRouter from "./module/bicycle/biCycle.router";
+import carRouter from "./module/car/car.router";
 import orderRouter from "./module/order/order.router";
 
 const app = express();
@@ -7,7 +7,7 @@ const app = express();
 // middleware
 app.use(express.json());
 
-app.use("/api/products", bicycleRouter);
+app.use("/api/products", carRouter);
 app.use("/api/orders", orderRouter);
 
 app.get("/", (req: Request, res: Response) => {
